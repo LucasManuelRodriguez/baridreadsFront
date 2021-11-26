@@ -1,28 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header/>
+    <Nav/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue';
+import Nav from './components/Nav.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    Nav
+    
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import './styles/reset.css';
+
+#app{
+  height:auto;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-template-rows:20% 15% 30%;
+  grid-template-areas: ". . header header . ."
+                       ". nav nav nav nav ."
+                       "boxPic boxPic boxPic boxPic boxPic boxPic";
+  justify-items: start;
+  }
+
+header {
+  width: 100%;
+  height:90%;
+  grid-area: header;
 }
+nav{
+  width: 100%;
+  height: 60%;
+  grid-area: nav;  
+}
+
+
 </style>
